@@ -1,14 +1,22 @@
+import sys
 import random
+import string
 
-alfabeto = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+def monkey_infinite(word):
+    characters = string.ascii_letters
+    len_word = len(word)
 
-def macaco_infinito():
-    palavra = ""
     while True:
-        letra = random.choice(alfabeto)
-        palavra += letra
-        print(letra, end="")
-        if palavra.endswith("macaco"):
-            return
+        random_word = ''.join(random.choice(characters) for _ in range(len_word))
+        print(random_word)
 
-macaco_infinito()
+        if random_word == word:
+            return random_word
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage:", sys.argv[0], "<word>")
+        sys.exit(1)
+
+    result = monkey_infinite(sys.argv[1])
+    print("Word found:", result)
