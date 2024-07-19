@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
     mpz_out_str(stdout, 10, attempts);
     std::cout << std::endl;
     
-    mpz_clear(attempts); // Clear the large number to free memory
+    mpz_clear(attempts);
 
     return 0;
 }
